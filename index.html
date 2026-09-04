@@ -14,7 +14,7 @@
     @media(max-width:760px){.sidebar .nav-item,.sidebar .nav-item:not(.active){display:block!important;font-size:0!important;text-align:center;padding:12px 6px}.sidebar .nav-item[data-view="customers"]:before{content:"客"!important;font-size:14px}.sidebar .nav-item[data-view="dashboard"]:before{content:"板"!important;font-size:14px}}
     @media(min-width:761px) and (max-width:900px){main{overflow:hidden}.topbar{display:block}.top-actions{margin-top:12px}.search{flex:1;width:auto}.workspace,.customer-panel,.detail-panel{min-width:0}.toolbar{gap:10px}.tabs{overflow:auto;white-space:nowrap}}
     @media(min-width:1101px) and (max-width:1320px){.workspace{grid-template-columns:1fr}.detail-panel{min-height:auto}.metric-grid{grid-template-columns:repeat(2,1fr)}}
-    .freight-card{display:grid;grid-template-columns:1fr 1fr;gap:8px;background:#edf7fa;border:1px solid #d4ebef;padding:12px;border-radius:11px;margin:0 0 16px}.freight-card span{display:block;font-size:10px;color:#6b7b91;margin-bottom:4px}.freight-card strong{font-size:12px}.primary:disabled{opacity:.62;cursor:wait}
+    .freight-card{display:grid;grid-template-columns:1fr 1fr;gap:8px;background:#edf7fa;border:1px solid #d4ebef;padding:12px;border-radius:11px;margin:0 0 16px}.freight-card span{display:block;font-size:10px;color:#6b7b91;margin-bottom:4px}.freight-card strong{font-size:12px}.primary:disabled{opacity:.62;cursor:wait}.detail-actions{display:flex;align-items:center;gap:8px}.ghost-button{border:1px solid #dce6ee;background:white;color:#086f9f;border-radius:9px;padding:7px 10px;font-size:11px;font-weight:800;cursor:pointer}.attention-item{border:0;width:100%;text-align:left;cursor:pointer}.attention-item:focus-visible,.ghost-button:focus-visible,.kpi-row.actionable:focus-visible{outline:3px solid rgba(22,183,201,.35);outline-offset:2px}.kpi-row.actionable{border:0;background:white;width:100%;text-align:left;cursor:pointer}.kpi-row.actionable:hover,.attention-item:hover{background:#edf7fb}
   </style>
 </head>
 <body>
@@ -134,14 +134,14 @@
 
   <dialog id="customer-dialog">
     <form method="dialog" id="customer-form">
-      <div class="dialog-head"><div><p class="eyebrow">NEW CUSTOMER</p><h2>新建客户</h2></div><button type="button" class="close" data-close-dialog="customer-dialog" aria-label="关闭">×</button></div>
+      <div class="dialog-head"><div><p class="eyebrow" id="customer-dialog-eyebrow">NEW CUSTOMER</p><h2 id="customer-dialog-title">新建客户</h2></div><button type="button" class="close" data-close-dialog="customer-dialog" aria-label="关闭">×</button></div>
       <div class="form-row"><label>客户名称<input name="name" required maxlength="40" placeholder="企业全称" /></label><label>客户简称<input name="short" required placeholder="2—4 个字" maxlength="4" /></label></div>
       <div class="form-row"><label>联系人<input name="contact" required maxlength="20" /></label><label>联系电话<input name="phone" type="tel" inputmode="tel" required minlength="7" maxlength="20" title="请输入 7—20 位电话号码，可包含空格、+、- 和括号" /></label></div>
       <label>核心航线 / 业务方向<input name="route" required maxlength="50" placeholder="例如：海运整箱 · 上海—洛杉矶" /></label>
       <div class="form-row"><label>预计月货量<input name="monthlyVolume" required maxlength="30" placeholder="例如：80—100 TEU" /></label><label>预计商机金额（元）<input name="opportunityValue" type="number" required min="0" max="1000000000" step="1000" placeholder="例如：500000" /></label></div>
       <div class="form-row"><label>报价有效期<input name="quoteExpiry" type="date" required /></label><label>期望账期<select name="paymentTerm"><option>现结</option><option>月结30天</option><option selected>月结45天</option><option>月结60天</option></select></label></div>
       <div class="form-row"><label>客户状态<select name="status"><option>潜在客户</option><option>方案沟通</option><option>商务谈判</option></select></label><label>客户等级<select name="level"><option>重点</option><option>普通</option></select></label></div>
-      <label>下次行动日期<input name="nextDate" type="date" required /></label>
+      <div class="form-row"><label>下次行动日期<input name="nextDate" type="date" required /></label><label>下一步行动<input name="nextAction" required maxlength="100" placeholder="例如：完成首次需求访谈" /></label></div>
       <div class="dialog-actions"><button type="button" class="secondary" data-close-dialog="customer-dialog">取消</button><button type="submit" value="default" class="primary" id="save-customer">创建客户</button></div>
     </form>
   </dialog>
@@ -156,7 +156,7 @@
       <div class="tour-actions"><button class="secondary" id="tour-close">退出</button><button class="primary" id="tour-next">下一步 →</button></div>
     </div>
   </div>
-  <script src="logic.js?v=2"></script>
-  <script src="app.js?v=2"></script>
+  <script src="logic.js?v=3"></script>
+  <script src="app.js?v=3"></script>
 </body>
 </html>
