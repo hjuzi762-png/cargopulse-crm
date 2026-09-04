@@ -21,6 +21,7 @@ module.exports=({test,assert})=>{
   test('[页面契约] 编辑下一步行动会重置完成态',()=>assert(app.includes('const actionChanged = previous.nextDate !== data.nextDate || previous.nextAction !== data.nextAction')&&app.includes('if (actionChanged) delete customers[index].completedOn')));
   test('[页面契约] KPI可追溯到客户列表',()=>assert(app.includes('data-kpi-filter')&&app.includes("toast('已跳转到指标对应客户列表')")));
   test('[页面契约] 风险行动可点击定位客户',()=>assert(app.includes('data-attention-id')&&app.includes('showCustomer(item.dataset.attentionId')));
+  test('[页面契约] 看板渠道统计可容忍坏数据',()=>assert(app.includes("const activityType = activity => String(activity?.type || '')")&&app.includes('activityType(activity).includes(key)')));
   test('[行业字段] 月货量存在',()=>assert(field('monthlyVolume')));
   test('[行业字段] 商机金额存在且非负',()=>assert(field('opportunityValue')&&html.includes('min="0"')));
   test('[行业字段] 报价有效期存在',()=>assert(field('quoteExpiry')));
